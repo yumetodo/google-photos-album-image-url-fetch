@@ -1,0 +1,6 @@
+test/
+src/
+.vscode/
+.gitattributes
+tsconfig.json
+.travis.yml

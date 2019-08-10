@@ -1,0 +1,62 @@
+{
+  "name": "google-photos-album-image-url-fetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
+    "test": "jest --verbose",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --fix --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumetodo/google-photos-album-image-url-fetch.git"
+  },
+  "keywords": [
+    "google-photos"
+  ],
+  "author": "yumetodo",
+  "license": "BSL-1.0",
+  "bugs": {
+    "url": "https://github.com/yumetodo/google-photos-album-image-url-fetch/issues"
+  },
+  "homepage": "https://github.com/yumetodo/google-photos-album-image-url-fetch#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.1",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "gaxios": "^2.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "resolveJsonModule": true,
+          "esModuleInterop": true
+        }
+      }
+    }
+  }
+}

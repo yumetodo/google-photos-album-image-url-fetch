@@ -1,0 +1,5 @@
+*               text=auto
+*.js            text
+*.ts            text
+*.json          text
+.gitattributes  text eol=lf
