@@ -57,9 +57,13 @@ output example
 
 Unlike [the base URLs](https://developers.google.com/photos/library/reference/rest/v1/mediaItems#MediaItem) which can get via google photos api, `url` is not temporally.
 
-To prove `url` is not temporally, we create daily cron job on Travis CI.  That is proving that `url` is not temporally while the badge is green.
+`imageUpdateDate` and `albumAddDate` are Unix epoch time.
+
+To prove `url` is not temporally, we create a cron job on Travis CI.  That is proving that `url` is not temporally while the badge is green.
 
 [![Build Status](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch.svg?branch=master)](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch)
+
+The Hydrangea macrophylla flower picture shown below is also proving that.
 
 ```markdown
 ![img](https://lh3.googleusercontent.com/zPhMfeo2liONsNfsikJbGRt3ygtuQ8ZQ1xPjNDCSaOhbRd5_HorUIL3b7CV_yEIZl1_5Ue_6ubyzLuLlglOt4NyndqZubl-67-giaI7Pz196i-ZL70Em50UF_RieTffiKowZFvaaog)
