@@ -1,9 +1,9 @@
 import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from '../src/impl';
 import { ImageInfo } from '../src/imageInfo';
+import { GooglePhotosSharedAlbumURL } from './constant'
 describe('impl', () => {
   it('impl', async () => {
-    //'https://photos.app.goo.gl/QCXy6XaKX5x1AynH8'
-    const html = await getSharedAlbumHtml('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
+    const html = await getSharedAlbumHtml(GooglePhotosSharedAlbumURL);
     expect(html.length).not.toBeUndefined();
     expect(10 < html.length).toBe(true);
     // parsePhase1
