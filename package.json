@@ -2,7 +2,7 @@
   "name": "google-photos-album-image-url-fetch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "prepare": "tsc",
     "build": "tsc",
