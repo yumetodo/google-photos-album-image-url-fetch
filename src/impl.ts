@@ -1,7 +1,6 @@
 import { request } from 'gaxios';
 import { ImageInfo } from './imageInfo';
 import { AbortSignal } from 'abort-controller';
-import { type } from 'os';
 export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortSignal) {
   return request<string>({
     url: albumSharedurl,
@@ -38,9 +37,10 @@ export function parsePhase3(input: any) {
       if (!Array.isArray(e) || e.length < 6) {
         return null;
       }
+      const uid = e[0];
       const imageUpdateDate = e[2];
       const albumAddDate = e[5];
-      if (typeof imageUpdateDate !== 'number' || typeof albumAddDate !== 'number') {
+      if (typeof uid !== 'string' || typeof imageUpdateDate !== 'number' || typeof albumAddDate !== 'number') {
         return null;
       }
       const detail = e[1];
@@ -53,7 +53,14 @@ export function parsePhase3(input: any) {
       if (typeof url !== 'string' || typeof width !== 'number' || typeof height !== 'number') {
         return null;
       }
-      return { url: url, width: width, height: height, imageUpdateDate: imageUpdateDate, albumAddDate: albumAddDate };
+      return {
+        uid: uid,
+        url: url,
+        width: width,
+        height: height,
+        imageUpdateDate: imageUpdateDate,
+        albumAddDate: albumAddDate,
+      };
     })
     .filter((e: ImageInfo | null): e is ImageInfo => !(null === e));
 }
