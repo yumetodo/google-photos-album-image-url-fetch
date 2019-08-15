@@ -1,11 +1,11 @@
-import { request } from 'gaxios';
+import { AbortSignal } from 'abort-controller';
 import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from './impl';
 import { ImageInfo as info } from './imageInfo';
 export namespace GooglePhotos {
   export namespace Album {
     export type ImageInfo = info;
-    export async function fetchImageUrls(albumSharedurl: string) {
-      const html = await getSharedAlbumHtml(albumSharedurl);
+    export async function fetchImageUrls(albumSharedurl: string, signal?: AbortSignal) {
+      const html = await getSharedAlbumHtml(albumSharedurl, signal);
       const ph1 = parsePhase1(html);
       if (null === ph1) {
         return null;
