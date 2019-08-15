@@ -4,11 +4,13 @@
 
 extract public image url from shared album url
 
+You can also use [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) to cancel Request by pass to 2nd argument.
+
 ```typescript
 import { GooglePhotos } from 'google-photos-album-image-url-fetch';
 const main = async () =>{
-    const re = await GooglePhotos.Album.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
-    console.log(JSON.stringfy(re, null, 2));
+  const re = await GooglePhotos.Album.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
+  console.log(JSON.stringfy(re, null, 2));
 }
 main().catch(er => console.error(er));
 ```
@@ -18,35 +20,40 @@ output example
 ```json
 [
   {
-    "url": "https://lh3.googleusercontent.com/NHgqSpIMUAryO1cx0vCrhSk_zbsSlDWiFuTtqHW-HcayR75JV9C0gOjwdrNa0m0bqpc6VzmtRuBi13muYb8xjs4KNFhinztt-5KM32k_E_c22pnzJw9dYG3mC-3yX_WuoNhR15WN8w",
+    "uid": "AF1QipO4_Y5pseqWDPSlY7AAo0wmg76xW4gX0kOz8-p_",
+    "url": "https://lh3.googleusercontent.com/Pt3C6874cqkfeuIVL0XZ-UCsC6zLzeQmxq7T9-sDiPhyAgvJiKl_SCrvrMMkpuWuZ1TFkU65ilaZJrCbePRYo1q1qGTYvFV6J8gbYfZhhxQuXm2zXx6QDQkj0K-uBBUzozw7YLYQ5g",
     "width": 640,
     "height": 480,
     "imageUpdateDate": 1317552314000,
     "albumAddDate": 1564229558506
   },
   {
-    "url": "https://lh3.googleusercontent.com/ZM3BxtqRwDpCMv2stl2juHzOtQ3xYMrYbAQ0W5rAB6hvkDZYf04GdncyR3m8JNSptiPbAUWZut7_r73Xak_3O87c6xAjWfvLk7ccs78prsRxyeVjkjBkwMtiz3qE6y4C8JgIHyZDUA",
+    "uid": "AF1QipNcKcm3bkXUXl3tNYFNTlBDZfKUqvvV3JJi8MVJ",
+    "url": "https://lh3.googleusercontent.com/Sl8wPPURFbFINwqgcEywOnpUk8sksgGKJI25Wtl885abhMoGHrxZh_qEe26bQmfv1OAG4ZX8qkz1svnLSJJZjh317TuU4cTk1vN04MbucjU8mlX7uDy0CPxVe8gggL-ftx6VgqWYxA",
     "width": 4000,
     "height": 3000,
     "imageUpdateDate": 1535348376000,
     "albumAddDate": 1565370026893
   },
   {
-    "url": "https://lh3.googleusercontent.com/u8XZ6eD3nmATalBuFn2aCRK9mRm5x1nFs91H6UgvPnOiQAVURugGUjfte3EYacSwsykHa4ea0WxPl_5NRklqMl3bh4vE9Di6B5XgDqbjt8Lhn8RnRFf8yWW3ovujYGO_OxBu8Ubnkw",
+    "uid": "AF1QipNxMqbkMWKWOYGGwFwE4X9vOoGsn-L8BlwArcOQ",
+    "url": "https://lh3.googleusercontent.com/i9DN1Lz7ft-oo-_Ubrprm8m4XyrI0sDpd5QFBlsNCV2FrWR2KYE95zLgPYSWcqdodGkCMEv7QZOIvRgfRqjlYLrfHQmGlQosTlvfYV8LcpyllenyOpJcgY-qRFN1wTjfZ-yQ-mzqjw",
     "width": 128,
     "height": 128,
     "imageUpdateDate": 1542123494000,
     "albumAddDate": 1565369489286
   },
   {
-    "url": "https://lh3.googleusercontent.com/zPhMfeo2liONsNfsikJbGRt3ygtuQ8ZQ1xPjNDCSaOhbRd5_HorUIL3b7CV_yEIZl1_5Ue_6ubyzLuLlglOt4NyndqZubl-67-giaI7Pz196i-ZL70Em50UF_RieTffiKowZFvaaog",
+    "uid": "AF1QipNJ-9aWE3ufONJlqwUezKHj6u-fzMnT5_6XHppY",
+    "url": "https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw",
     "width": 2560,
     "height": 1920,
     "imageUpdateDate": 1561102312000,
     "albumAddDate": 1565372213085
   },
   {
-    "url": "https://lh3.googleusercontent.com/xWaEwUGvHWp_nHboXBmJBMdQ53VXY2zsjYEjwfkp5s7yMMPVjjdcB99v5TIMcuzpunn-DZ1ovFq9bJ7JAQBdr5pFFdyNl5nqwV7dFVKY0mNU8cZsLBwbgUZu8_yqBaeYJ6THpk6ZYg",
+    "uid": "AF1QipPPgtqCsxCboAH8XkEJeUOFsL0FT1PakyZwkODX",
+    "url": "https://lh3.googleusercontent.com/W8s1YRbVDCzZB1MBkp9civLlO-nW5VODxaSkov4RAxI-rKxUaQou1vaTr1x1Upd_fv1jAEw-g8wACiQcKtJ2ZqlBtIYP-vHkr16Zl3BRU9K_1JsfTQ0ws5LDBptBHFlPAdwUh5NBCg",
     "width": 1920,
     "height": 835,
     "imageUpdateDate": 1564142679000,
