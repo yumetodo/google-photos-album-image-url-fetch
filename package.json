@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
+    "fast-deep-equal": "^2.0.1",
     "gaxios": "^2.0.1"
   },
   "jest": {
