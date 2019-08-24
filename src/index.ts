@@ -2,6 +2,9 @@ import { AbortSignal } from 'abort-controller';
 import equal from 'fast-deep-equal';
 import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from './impl';
 import { ImageInfo as info } from './imageInfo';
+import expected from './expected.json';
+import { GooglePhotosSharedAlbumURL } from './constant';
+
 export namespace GooglePhotos {
   export namespace Album {
     export type ImageInfo = info;
@@ -19,6 +22,13 @@ export namespace GooglePhotos {
     }
     export function extractAppended(before: ImageInfo[], after: ImageInfo[]) {
       return after.filter(a => typeof before.find(v => equal(v, a)) === 'undefined');
+    }
+    export async function validityVerification() {
+      const re = await GooglePhotos.Album.fetchImageUrls(GooglePhotosSharedAlbumURL);
+      if (null === re) {
+        return false;
+      }
+      return equal(re, expected);
     }
   }
 }

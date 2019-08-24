@@ -1,7 +1,7 @@
 import { GooglePhotos } from '../src/index';
 // @ts-ignore
-import expected from './expected.json';
-import { GooglePhotosSharedAlbumURL } from './constant'
+import expected from '../src/expected.json';
+import { GooglePhotosSharedAlbumURL } from '../src/constant';
 describe('test', () => {
   it('fetchImageUrls', async () => {
     const re = await GooglePhotos.Album.fetchImageUrls(GooglePhotosSharedAlbumURL);
@@ -21,5 +21,9 @@ describe('test', () => {
     }
     const re = GooglePhotos.Album.extractAppended(before, after);
     expect(re).toEqual(appended);
+  });
+  it('validityVerification', async () => {
+    const re: boolean = await GooglePhotos.Album.validityVerification();
+    expect(re).toEqual(true);
   });
 });

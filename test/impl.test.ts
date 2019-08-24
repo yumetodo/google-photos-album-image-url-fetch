@@ -1,6 +1,6 @@
 import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from '../src/impl';
 import { ImageInfo } from '../src/imageInfo';
-import { GooglePhotosSharedAlbumURL } from './constant';
+import { GooglePhotosSharedAlbumURL } from '../src/constant';
 describe('impl', () => {
   it('impl', async () => {
     const html = await getSharedAlbumHtml(GooglePhotosSharedAlbumURL);
