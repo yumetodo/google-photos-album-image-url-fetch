@@ -22,6 +22,5 @@ describe('impl', () => {
     expect(Array.isArray(ph3)).toBe(true);
     const ph3Checked = ph3 as ImageInfo[];
     expect(ph3Checked.length).not.toBe(0);
-    console.log(JSON.stringify(ph3));
   });
 });
