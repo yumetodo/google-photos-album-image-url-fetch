@@ -24,7 +24,7 @@ export function parsePhase2(input: string) {
     return null;
   }
 }
-export function parsePhase3(input: any) {
+export function parsePhase3(input: unknown) {
   if (!Array.isArray(input) || input.length < 1) {
     return null;
   }
@@ -33,7 +33,7 @@ export function parsePhase3(input: any) {
     return null;
   }
   return arr
-    .map((e): ImageInfo | null => {
+    .map(e => {
       if (!Array.isArray(e) || e.length < 6) {
         return null;
       }

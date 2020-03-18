@@ -2,16 +2,16 @@
 
 [![Build Status](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch.svg?branch=master)](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch)
 
-## `GooglePhotos.Album.fetchImageUrls`
+## `GooglePhotosAlbum.fetchImageUrls`
 
 extract public image url from shared album url
 
 You can also use [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) to cancel Request by pass to 2nd argument.
 
 ```typescript
-import { GooglePhotos } from 'google-photos-album-image-url-fetch';
+import * as GooglePhotosAlbum from '../src/index';
 const main = async () =>{
-  const re = await GooglePhotos.Album.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
+  const re = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   console.log(JSON.stringfy(re, null, 2));
 }
 main().catch(er => console.error(er));
@@ -68,20 +68,20 @@ Unlike [the base URLs](https://developers.google.com/photos/library/reference/re
 
 `imageUpdateDate` and `albumAddDate` are Unix epoch time.
 
-## `GooglePhotos.Album.extractAppended`
+## `GooglePhotosAlbum.extractAppended`
 
-When you use this library with Google Photos API, you will want to call `GooglePhotos.Album.fetchImageUrls` multiple times to get the differences.
+When you use this library with Google Photos API, you will want to call `GooglePhotosAlbum.fetchImageUrls` multiple times to get the differences.
 
 To extract new Image info created via [`batchCreate` of Google Photos API](https://developers.google.com/photos/library/reference/rest/v1/mediaItems/batchCreate),  
-you can use `GooglePhotos.Album.extractAppended`.
+you can use `GooglePhotosAlbum.extractAppended`.
 
 ```typescript
-import { GooglePhotos } from 'google-photos-album-image-url-fetch';
+import * as GooglePhotosAlbum from '../src/index';
 const main = async () =>{
-  const before = await GooglePhotos.Album.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
+  const before = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   // call batchCreate API
-  const after = await GooglePhotos.Album.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
-  const appended = GooglePhotos.Album.extractAppended(before, after);
+  const after = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
+  const appended = GooglePhotosAlbum.extractAppended(before, after);
   console.log(JSON.stringfy(appended, null, 2));
 }
 main().catch(er => console.error(er));

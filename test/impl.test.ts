@@ -12,10 +12,10 @@ describe('impl', () => {
     // parsePhase2
     const ph2 = parsePhase2(ph1 as string);
     expect(Array.isArray(ph2)).toBe(true);
-    const ph2Checked = ph2 as any[];
+    const ph2Checked = ph2 as unknown[];
     expect(1 < ph2Checked.length).toBe(true);
     expect(Array.isArray(ph2Checked[1])).toBe(true);
-    const ph2CheckedElementChecked = ph2Checked[1] as any[];
+    const ph2CheckedElementChecked = ph2Checked[1] as unknown[];
     expect(1 < ph2CheckedElementChecked.length).toBe(true);
     // parsePhase3
     const ph3 = parsePhase3(ph2);

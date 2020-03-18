@@ -5,30 +5,26 @@ import { ImageInfo as info } from './imageInfo';
 import expected from './expected.json';
 import { GooglePhotosSharedAlbumURL } from './constant';
 
-export namespace GooglePhotos {
-  export namespace Album {
-    export type ImageInfo = info;
-    export async function fetchImageUrls(albumSharedurl: string, signal?: AbortSignal) {
-      const html = await getSharedAlbumHtml(albumSharedurl, signal);
-      const ph1 = parsePhase1(html);
-      if (null === ph1) {
-        return null;
-      }
-      const ph2 = parsePhase2(ph1);
-      if (null === ph2) {
-        return null;
-      }
-      return parsePhase3(ph2);
-    }
-    export function extractAppended(before: ImageInfo[], after: ImageInfo[]) {
-      return after.filter(a => typeof before.find(v => equal(v, a)) === 'undefined');
-    }
-    export async function validityVerification() {
-      const re = await GooglePhotos.Album.fetchImageUrls(GooglePhotosSharedAlbumURL);
-      if (null === re) {
-        return false;
-      }
-      return equal(re, expected);
-    }
+export type ImageInfo = info;
+export async function fetchImageUrls(albumSharedurl: string, signal?: AbortSignal) {
+  const html = await getSharedAlbumHtml(albumSharedurl, signal);
+  const ph1 = parsePhase1(html);
+  if (null === ph1) {
+    return null;
   }
+  const ph2 = parsePhase2(ph1);
+  if (null === ph2) {
+    return null;
+  }
+  return parsePhase3(ph2);
+}
+export function extractAppended(before: ImageInfo[], after: ImageInfo[]) {
+  return after.filter(a => typeof before.find(v => equal(v, a)) === 'undefined');
+}
+export async function validityVerification() {
+  const re = await fetchImageUrls(GooglePhotosSharedAlbumURL);
+  if (null === re) {
+    return false;
+  }
+  return equal(re, expected);
 }
