@@ -1,5 +1,5 @@
 *               text=auto
 *.js            text
-*.ts            text
+*.ts            text eol=lf
 *.json          text
 .gitattributes  text eol=lf
