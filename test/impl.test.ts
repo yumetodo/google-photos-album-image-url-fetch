@@ -1,6 +1,10 @@
 import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from '../src/impl';
 import { ImageInfo } from '../src/imageInfo';
 import { GooglePhotosSharedAlbumURL } from '../src/constant';
+import { promisify } from 'util';
+import { readFile } from 'fs';
+const readFileP = promisify(readFile);
+// import * as data from './over_500_album_data.json';
 describe('impl', () => {
   it('impl', async () => {
     const html = await getSharedAlbumHtml(GooglePhotosSharedAlbumURL);
@@ -22,5 +26,13 @@ describe('impl', () => {
     expect(Array.isArray(ph3)).toBe(true);
     const ph3Checked = ph3 as ImageInfo[];
     expect(ph3Checked.length).not.toBe(0);
+  });
+  it('over', async () => {
+    const data = await readFileP('./test/over_500_album_data.json', { encoding: 'utf-8' }).then(t => JSON.parse(t));
+    const ph3 = parsePhase3(data);
+    expect(Array.isArray(ph3)).toBe(true);
+    if (ph3) {
+      console.log(ph3.length);
+    }
   });
 });

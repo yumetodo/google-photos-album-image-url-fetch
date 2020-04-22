@@ -26,31 +26,37 @@ export function parsePhase2(input: string) {
 }
 export function parsePhase3(input: unknown) {
   if (!Array.isArray(input) || input.length < 1) {
+    console.log('parsePhase3: input is invalid');
     return null;
   }
   const arr = input[1];
   if (!Array.isArray(arr)) {
+    console.log('parsePhase3: input[1] is invalid');
     return null;
   }
   return arr
     .map(e => {
       if (!Array.isArray(e) || e.length < 6) {
+        console.log('parsePhase3->map: e is invalid', `length: ${e.length}`);
         return null;
       }
       const uid = e[0];
       const imageUpdateDate = e[2];
       const albumAddDate = e[5];
       if (typeof uid !== 'string' || typeof imageUpdateDate !== 'number' || typeof albumAddDate !== 'number') {
+        console.log('parsePhase3->map: e[0], e[2] or e[5] is invalid');
         return null;
       }
       const detail = e[1];
       if (!Array.isArray(detail) || detail.length < 3) {
+        console.log('parsePhase3->map: e[1] is invalid', `length: ${detail.length}`);
         return null;
       }
       const url = detail[0];
       const width = detail[1];
       const height = detail[2];
       if (typeof url !== 'string' || typeof width !== 'number' || typeof height !== 'number') {
+        console.log('parsePhase3->map: e[1][0], e[1][1] or e[1][2] is invalid');
         return null;
       }
       return {
