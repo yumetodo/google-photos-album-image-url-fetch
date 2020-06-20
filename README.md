@@ -1,6 +1,7 @@
 # google-photos-album-image-url-fetch
 
 [![Build Status](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch.svg?branch=master)](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch?ref=badge_shield)
 
 ## `GooglePhotosAlbum.fetchImageUrls`
 
@@ -100,3 +101,7 @@ The Hydrangea macrophylla flower picture shown below is also proving that.
 ```
 
 ![img](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch?ref=badge_large)
