@@ -68,13 +68,13 @@ Unlike [the base URLs](https://developers.google.com/photos/library/reference/re
 
 `imageUpdateDate` and `albumAddDate` are Unix epoch time.
 
-By default the url retrieve a small version of the image, to retrieve it to a specific dimension just append to the url `=wXXX-hXXX-no` where `XXX` are the dimensions
+By default the url retrieve a small version of the image, to retrieve it to a specific dimension just append to the url `=wXXX-hXXX` where `XXX` are the dimensions
 
 Fetching all pictures in full dimensions would be:
 ```
 let pics = await GooglePhotosAlbum.fetchImageUrls(albums[i]);
 pics.forEach(pic => {
-  fetch(`${pic.url}=w${pic.width}-h${pic.height}-no`);
+  fetch(`${pic.url}=w${pic.width}-h${pic.height}`);
 });
 ```
 
