@@ -10,7 +10,7 @@ export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortS
   }).then(r => r.data);
 }
 export function parsePhase1(input: string) {
-  const re = /<script nonce="[^"]+">AF_initDataCallback.+data\s*:\s*function\s*\(\s*\)\s*{\s*return\s*([^<]+)\s*}\s*}\s*\)\s*;\s*<\/script>/g;
+  const re = /<script nonce="[^"]+">AF_initDataCallback.+data\s*:\s*([^<]+)}\s*\)\s*;\s*<\/script>/;
   const s = re.exec(input);
   if (null === s || s.length !== 2) {
     return null;
