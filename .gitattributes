@@ -1,5 +1,7 @@
 *               text=auto
-*.js            text
+*.js            text eol=lf
 *.ts            text eol=lf
 *.json          text
 .gitattributes  text eol=lf
+.gitignore      text eol=lf
+.npmignore      text eol=lf
