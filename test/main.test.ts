@@ -1,11 +1,11 @@
 import * as GooglePhotosAlbum from '../src/index';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Cannot find module '../src/expected.json'. Consider using '--resolveJsonModule' to import module with '.json' extension
 import expected from '../src/expected.json';
-import { GooglePhotosSharedAlbumURL } from '../src/constant';
+import { googlePhotosSharedAlbumURL } from '../src/constant';
 describe('test', () => {
   it('fetchImageUrls', async () => {
-    const re = await GooglePhotosAlbum.fetchImageUrls(GooglePhotosSharedAlbumURL);
+    const re = await GooglePhotosAlbum.fetchImageUrls(googlePhotosSharedAlbumURL);
     expect(re).not.toBeNull();
     expect(re).toEqual(expected);
   });

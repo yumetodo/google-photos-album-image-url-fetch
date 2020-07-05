@@ -17,12 +17,38 @@
   "rules": {
     "no-throw-literal": "error",
     "no-unused-expressions": "error",
-    "curly": "error",
-    "@typescript-eslint/class-name-casing": "error",
+    "curly": ["error", "multi-line"],
     "@typescript-eslint/semi": "error",
-    "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "property",
+        "format": null
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "eqeqeq": "error",
+    "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "_" }],
     "no-constant-condition": ["error", { "checkLoops": false }],
     "prettier/prettier": [
       "error", {

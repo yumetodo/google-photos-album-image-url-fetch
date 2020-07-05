@@ -1,7 +1,7 @@
 import { request } from 'gaxios';
 import { ImageInfo } from './imageInfo';
 import { AbortSignal } from 'abort-controller';
-export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortSignal) {
+export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortSignal): Promise<string> {
   return request<string>({
     url: albumSharedurl,
     retryConfig: { retry: 4, retryDelay: 1000 },
@@ -9,7 +9,7 @@ export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortS
     signal: signal,
   }).then(r => r.data);
 }
-export function parsePhase1(input: string) {
+export function parsePhase1(input: string): string | null {
   const re = /<script nonce="[^"]+">AF_initDataCallback.+data\s*:\s*([^<]+)}\s*\)\s*;\s*<\/script>/;
   const s = re.exec(input);
   if (null === s || s.length !== 2) {
@@ -17,14 +17,14 @@ export function parsePhase1(input: string) {
   }
   return s[1];
 }
-export function parsePhase2(input: string) {
+export function parsePhase2(input: string): unknown {
   try {
     return JSON.parse(input);
   } catch (_) {
     return null;
   }
 }
-export function parsePhase3(input: unknown) {
+export function parsePhase3(input: unknown): ImageInfo[] | null {
   if (!Array.isArray(input) || input.length < 1) {
     return null;
   }
