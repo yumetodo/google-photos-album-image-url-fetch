@@ -1,6 +1,7 @@
 import { request } from 'gaxios';
 import { ImageInfo } from './imageInfo';
 import { AbortSignal } from 'abort-controller';
+import { parse } from 'json5';
 export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortSignal): Promise<string> {
   return request<string>({
     url: albumSharedurl,
@@ -10,7 +11,7 @@ export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortS
   }).then(r => r.data);
 }
 export function parsePhase1(input: string): string | null {
-  const re = /<script nonce="[^"]+">AF_initDataCallback.+data\s*:\s*([^<]+)}\s*\)\s*;\s*<\/script>/;
+  const re = /<script nonce="[^"]+">AF_initDataCallback\((.+data\s*:\s*[^<]+})\s*\)\s*;\s*<\/script>/;
   const s = re.exec(input);
   if (null === s || s.length !== 2) {
     return null;
@@ -19,22 +20,32 @@ export function parsePhase1(input: string): string | null {
 }
 export function parsePhase2(input: string): unknown {
   try {
-    return JSON.parse(input);
+    return parse(input);
   } catch (_) {
     return null;
   }
 }
+export interface ContainData {
+  data: unknown;
+}
+export const isContainData = (o: unknown): o is ContainData => typeof o === 'object' && o != null && 'data' in o;
+const rawIsArray = Array.isArray;
+const isArray = (a: unknown): a is unknown[] => rawIsArray(a);
 export function parsePhase3(input: unknown): ImageInfo[] | null {
-  if (!Array.isArray(input) || input.length < 1) {
+  if (!isContainData(input)) {
     return null;
   }
-  const arr = input[1];
-  if (!Array.isArray(arr)) {
+  const d = input.data;
+  if (!isArray(d) || d.length < 1) {
+    return null;
+  }
+  const arr = d[1];
+  if (!isArray(arr)) {
     return null;
   }
   return arr
     .map(e => {
-      if (!Array.isArray(e) || e.length < 6) {
+      if (!isArray(e) || e.length < 6) {
         return null;
       }
       const uid = e[0];
@@ -44,7 +55,7 @@ export function parsePhase3(input: unknown): ImageInfo[] | null {
         return null;
       }
       const detail = e[1];
-      if (!Array.isArray(detail) || detail.length < 3) {
+      if (!isArray(detail) || detail.length < 3) {
         return null;
       }
       const url = detail[0];

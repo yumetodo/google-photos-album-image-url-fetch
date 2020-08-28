@@ -1,4 +1,4 @@
-import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from '../src/impl';
+import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3, isContainData } from '../src/impl';
 import { ImageInfo } from '../src/imageInfo';
 import { googlePhotosSharedAlbumURL } from '../src/constant';
 describe('impl', () => {
@@ -11,12 +11,16 @@ describe('impl', () => {
     expect(ph1).not.toBeNull();
     // parsePhase2
     const ph2 = parsePhase2(ph1 as string);
-    expect(Array.isArray(ph2)).toBe(true);
-    const ph2Checked = ph2 as unknown[];
-    expect(1 < ph2Checked.length).toBe(true);
-    expect(Array.isArray(ph2Checked[1])).toBe(true);
-    const ph2CheckedElementChecked = ph2Checked[1] as unknown[];
-    expect(1 < ph2CheckedElementChecked.length).toBe(true);
+    if (!isContainData(ph2)) {
+      throw new Error('missing data propaty');
+    }
+    const ph2Data = ph2.data;
+    expect(Array.isArray(ph2Data)).toBe(true);
+    const ph2DataChecked = ph2Data as unknown[];
+    expect(1 < ph2DataChecked.length).toBe(true);
+    expect(Array.isArray(ph2DataChecked[1])).toBe(true);
+    const ph2DataCheckedElementChecked = ph2DataChecked[1] as unknown[];
+    expect(1 < ph2DataCheckedElementChecked.length).toBe(true);
     // parsePhase3
     const ph3 = parsePhase3(ph2);
     expect(Array.isArray(ph3)).toBe(true);
