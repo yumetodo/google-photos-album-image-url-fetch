@@ -47,7 +47,7 @@
       }
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
-    "eqeqeq": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
     "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "_" }],
     "no-constant-condition": ["error", { "checkLoops": false }],
     "prettier/prettier": [
