@@ -105,3 +105,6 @@ src/*
 .eslintignore
 .eslintrc.json
 .travis.yml
+.prettierrc.json
+.prettierignore
+.gitattributes

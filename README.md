@@ -11,10 +11,10 @@ You can also use [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/
 
 ```typescript
 import * as GooglePhotosAlbum from '../src/index';
-const main = async () =>{
+const main = async () => {
   const re = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   console.log(JSON.stringfy(re, null, 2));
-}
+};
 main().catch(er => console.error(er));
 ```
 
@@ -72,6 +72,7 @@ Unlike [the base URLs](https://developers.google.com/photos/library/reference/re
 By default the url retrieve a small version of the image, to retrieve it to a specific dimension just append to the url `=wXXX-hXXX` where `XXX` are the dimensions
 
 Fetching all pictures in full dimensions would be:
+
 ```
 let pics = await GooglePhotosAlbum.fetchImageUrls(albums[i]);
 pics.forEach(pic => {
@@ -88,19 +89,19 @@ you can use `GooglePhotosAlbum.extractAppended`.
 
 ```typescript
 import * as GooglePhotosAlbum from '../src/index';
-const main = async () =>{
+const main = async () => {
   const before = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   // call batchCreate API
   const after = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   const appended = GooglePhotosAlbum.extractAppended(before, after);
   console.log(JSON.stringfy(appended, null, 2));
-}
+};
 main().catch(er => console.error(er));
 ```
 
 ## `url` is really valid forever?
 
-To prove `url` is not temporally, we create a cron job on Travis CI.  That is proving that `url` is not temporally while the badge is green.
+To prove `url` is not temporally, we create a cron job on Travis CI. That is proving that `url` is not temporally while the badge is green.
 
 [![Build Status](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch.svg?branch=master)](https://travis-ci.org/yumetodo/google-photos-album-image-url-fetch)
 
@@ -112,6 +113,6 @@ The Hydrangea macrophylla flower picture shown below is also proving that.
 
 ![img](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch?ref=badge_large)
