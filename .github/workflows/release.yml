@@ -24,7 +24,7 @@ jobs:
     - run: npm test
     - name: npm publish when possible
       run: |
-        if npx can-npm-publish --verbose pkg; then
+        if npx can-npm-publish --verbose; then
             npm publish
         else
             echo "publish skipped"
