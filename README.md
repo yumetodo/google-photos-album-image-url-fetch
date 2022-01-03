@@ -1,5 +1,6 @@
 # google-photos-album-image-url-fetch
 
+[![Node CI](https://github.com/yumetodo/google-photos-album-image-url-fetch/actions/workflows/test.yml/badge.svg)](https://github.com/yumetodo/google-photos-album-image-url-fetch/actions/workflows/test.yml)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyumetodo%2Fgoogle-photos-album-image-url-fetch?ref=badge_shield)
 
 ## `GooglePhotosAlbum.fetchImageUrls`
