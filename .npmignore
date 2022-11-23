@@ -108,3 +108,7 @@ src/*
 .prettierrc.json
 .prettierignore
 .gitattributes
+.github/
+jest.config.js
+jest.setup.js
+.markdownlint.json
