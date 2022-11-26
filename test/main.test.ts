@@ -3,11 +3,20 @@ import * as GooglePhotosAlbum from '../src/index';
 // @ts-ignore: Cannot find module '../src/expected.json'. Consider using '--resolveJsonModule' to import module with '.json' extension
 import expected from '../src/expected.json';
 import { googlePhotosSharedAlbumURL } from '../src/constant';
+import { splitResult } from '../src/split_result';
 describe('test', () => {
   it('fetchImageUrls', async () => {
     const re = await GooglePhotosAlbum.fetchImageUrls(googlePhotosSharedAlbumURL);
     expect(re).not.toBeNull();
-    expect(re).toEqual(expected);
+    if (re == null) return;
+    const [actualRest, actualUrls] = splitResult(re);
+    const [expectedRest, expectedAnyUrls] = splitResult(expected);
+    expect(actualRest).toEqual(expectedRest);
+    for (let i = 0; i < actualUrls.length; i++) {
+      const actualUrl = actualUrls[i];
+      const expectedAnyUrl = expectedAnyUrls[i];
+      expect(expectedAnyUrl).toContain(actualUrl);
+    }
   });
   it('extractAppended', () => {
     const after: GooglePhotosAlbum.ImageInfo[] = expected;
