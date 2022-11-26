@@ -1,6 +1,6 @@
 export interface ImageInfo {
   /**
-   * When you have shared album URL that can get via Google Photos API, that shold be like below:
+   * When you have shared album URL that can get via Google Photos API, that should be like below:
    *
    * `https://photos.app.goo.gl/${shortAlbumUID}`
    *

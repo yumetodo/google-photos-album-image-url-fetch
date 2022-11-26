@@ -13,7 +13,7 @@ You can also use [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/
 import * as GooglePhotosAlbum from '../src/index';
 const main = async () => {
   const re = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
-  console.log(JSON.stringfy(re, null, 2));
+  console.log(JSON.stringify(re, null, 2));
 };
 main().catch(er => console.error(er));
 ```
@@ -94,7 +94,7 @@ const main = async () => {
   // call batchCreate API
   const after = await GooglePhotosAlbum.fetchImageUrls('https://photos.app.goo.gl/QCXy6XaKX5x1AynH8');
   const appended = GooglePhotosAlbum.extractAppended(before, after);
-  console.log(JSON.stringfy(appended, null, 2));
+  console.log(JSON.stringify(appended, null, 2));
 };
 main().catch(er => console.error(er));
 ```
@@ -108,12 +108,12 @@ To prove `url` is not temporally, we create a cron job on Travis CI. That is pro
 The Hydrangea macrophylla flower picture shown below is also proving that.
 
 ```markdown
-![froamt-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+![format-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
 
 ![format-2](https://lh3.googleusercontent.com/pw/AL9nZEVCkd_5McMGTASxXDATcHabzpXxroM4D7A3qfk13tF0_IiixjIrVWf_HyPak8LPhrOJ_5t8911M4btRzYMnkrWKdFFGBLFG4Ksyes2WLO-RlHqPZu8)
 ```
 
-![froamt-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+![format-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
 
 ![format-2](https://lh3.googleusercontent.com/pw/AL9nZEVCkd_5McMGTASxXDATcHabzpXxroM4D7A3qfk13tF0_IiixjIrVWf_HyPak8LPhrOJ_5t8911M4btRzYMnkrWKdFFGBLFG4Ksyes2WLO-RlHqPZu8)
 

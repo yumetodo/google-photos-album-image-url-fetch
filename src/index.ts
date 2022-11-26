@@ -7,8 +7,8 @@ import { googlePhotosSharedAlbumURL } from './constant';
 import { splitResult } from './split_result';
 
 export type ImageInfo = info;
-export async function fetchImageUrls(albumSharedurl: string, signal?: AbortSignal): Promise<info[] | null> {
-  const html = await getSharedAlbumHtml(albumSharedurl, signal);
+export async function fetchImageUrls(albumSharedUrl: string, signal?: AbortSignal): Promise<info[] | null> {
+  const html = await getSharedAlbumHtml(albumSharedUrl, signal);
   const ph1 = parsePhase1(html);
   if (null === ph1) {
     return null;
