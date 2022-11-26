@@ -4,6 +4,7 @@ import { getSharedAlbumHtml, parsePhase1, parsePhase2, parsePhase3 } from './imp
 import { ImageInfo as info } from './imageInfo';
 import expected from './expected.json';
 import { googlePhotosSharedAlbumURL } from './constant';
+import { splitResult } from './split_result';
 
 export type ImageInfo = info;
 export async function fetchImageUrls(albumSharedurl: string, signal?: AbortSignal): Promise<info[] | null> {
@@ -26,5 +27,10 @@ export async function validityVerification(): Promise<boolean> {
   if (null === re) {
     return false;
   }
-  return equal(re, expected);
+  const [actualRest, actualUrls] = splitResult(re);
+  const [expectedRest, expectedAnyUrls] = splitResult(expected);
+  return (
+    expectedAnyUrls.every((expectedAnyUrl, i) => expectedAnyUrl.some(e => e === actualUrls[i])) &&
+    equal(actualRest, expectedRest)
+  );
 }
