@@ -18,7 +18,7 @@ const main = async () => {
 main().catch(er => console.error(er));
 ```
 
-output example
+output example(see "Notice: Currently, there are two format of `url`" section)
 
 ```json
 [
@@ -73,7 +73,7 @@ By default the url retrieve a small version of the image, to retrieve it to a sp
 
 Fetching all pictures in full dimensions would be:
 
-```
+```js
 let pics = await GooglePhotosAlbum.fetchImageUrls(albums[i]);
 pics.forEach(pic => {
   fetch(`${pic.url}=w${pic.width}-h${pic.height}`);
@@ -108,10 +108,25 @@ To prove `url` is not temporally, we create a cron job on Travis CI. That is pro
 The Hydrangea macrophylla flower picture shown below is also proving that.
 
 ```markdown
-![img](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+![froamt-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+
+![format-2](https://lh3.googleusercontent.com/pw/AL9nZEVCkd_5McMGTASxXDATcHabzpXxroM4D7A3qfk13tF0_IiixjIrVWf_HyPak8LPhrOJ_5t8911M4btRzYMnkrWKdFFGBLFG4Ksyes2WLO-RlHqPZu8)
 ```
 
-![img](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+![froamt-1](https://lh3.googleusercontent.com/ivJw0PWcKAIhffUa-1UMK75EMX7LQJ9CEwogzCpdZaFMw9_QcxKkWTiw74we5_0gW3dbFh2CRF60kngwc2tqtdy0r54VeEcSi-l77Jabr8QPP8IGUW3gfT6lFzR6RD8K0lpTFbT0Tw)
+
+![format-2](https://lh3.googleusercontent.com/pw/AL9nZEVCkd_5McMGTASxXDATcHabzpXxroM4D7A3qfk13tF0_IiixjIrVWf_HyPak8LPhrOJ_5t8911M4btRzYMnkrWKdFFGBLFG4Ksyes2WLO-RlHqPZu8)
+
+## Notice: Currently, there are two format of `url`
+
+As far as I detected via CI shown above, there are two format of `url` like below:
+
+- "https://lh3.googleusercontent.com/Pt3C6874cqkfeuIVL0XZ-UCsC6zLzeQmxq7T9-sDiPhyAgvJiKl_SCrvrMMkpuWuZ1TFkU65ilaZJrCbePRYo1q1qGTYvFV6J8gbYfZhhxQuXm2zXx6QDQkj0K-uBBUzozw7YLYQ5g"
+  - exists since at least 2019(maybe from Google Photos started).
+- "https://lh3.googleusercontent.com/pw/AL9nZEV1iNMg-BoRi9GwhhnWNG1SLsFVVhn3xcwh2HaFendlbRJ4DbmEVO9EhQ1SrM4H3zXcbiBYLT9F-e7oyq8I1mrluxlb-00N8dimii_zV7fbE3F080Y"
+  - exists since at least `2022-11-20T17:27:38Z`.
+
+I cannot find the way to specify the format. See #19.
 
 ## License
 
