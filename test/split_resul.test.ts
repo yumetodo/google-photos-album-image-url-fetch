@@ -25,18 +25,26 @@ describe('url: string', () => {
     expect(actual).toStrictEqual([[expectedRest], [url1]]);
     // assume shallow copy
     input.height = 500;
-    expect(actual[0][0].height).toBe(input.height);
+    expect(actual[0][0].height).not.toBe(input.height);
   });
   it('splitResult readonly fail', () => {
-    const input: ImageInfo = {
+    const input: ImageInfo = Object.freeze({
       albumAddDate: 1564229558506,
       height: 400,
       imageUpdateDate: 1317552314000,
       uid: 'AF1QipO4_Y5pseqWDPSlY7AAo0wmg76xW4gX0kOz8-p_',
       url: url1,
       width: 640,
+    });
+    const expectedRest = {
+      albumAddDate: 1564229558506,
+      height: 400,
+      imageUpdateDate: 1317552314000,
+      uid: 'AF1QipO4_Y5pseqWDPSlY7AAo0wmg76xW4gX0kOz8-p_',
+      width: 640,
     };
-    expect(() => splitResult([Object.freeze(input)])).toThrow(TypeError);
+    const actual = splitResult([input]);
+    expect(actual).toStrictEqual([[expectedRest], [url1]]);
   });
 });
 describe('url: string[]', () => {
@@ -60,6 +68,6 @@ describe('url: string[]', () => {
     expect(actual).toStrictEqual([[expectedRest], [[url1, url2]]]);
     // assume shallow copy
     input.height = 500;
-    expect(actual[0][0].height).toBe(input.height);
+    expect(actual[0][0].height).not.toBe(input.height);
   });
 });
