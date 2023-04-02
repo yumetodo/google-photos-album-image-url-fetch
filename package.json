@@ -1,6 +1,6 @@
 {
   "name": "google-photos-album-image-url-fetch",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "extract public image url from google photos shared album url",
   "main": "dist/index.js",
   "scripts": {
