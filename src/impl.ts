@@ -11,12 +11,8 @@ export async function getSharedAlbumHtml(albumSharedurl: string, signal?: AbortS
   }).then(r => r.data);
 }
 export function parsePhase1(input: string): string | null {
-  const re = /<script nonce="[^"]+">AF_initDataCallback\((.+data\s*:\s*[^<]+})\s*\)\s*;\s*<\/script>/;
-  const s = re.exec(input);
-  if (null === s || s.length !== 2) {
-    return null;
-  }
-  return s[1];
+  const re = /(?<=AF_initDataCallback\()(?=.*data)(\{[\s\S]*?)(\);<\/script>)/g;
+  return [...input.matchAll(re)].reduce((a, b) => (a.length > b[1].length ? a : b[1]), '');
 }
 export function parsePhase2(input: string): unknown {
   try {
