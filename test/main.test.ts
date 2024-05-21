@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/naming-convention
 import * as GooglePhotosAlbum from '../src/index';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Cannot find module '../src/expected.json'. Consider using '--resolveJsonModule' to import module with '.json' extension
