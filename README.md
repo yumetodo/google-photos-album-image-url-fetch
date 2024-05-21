@@ -117,16 +117,18 @@ The Hydrangea macrophylla flower picture shown below is also proving that.
 
 ![format-2](https://lh3.googleusercontent.com/pw/AL9nZEVCkd_5McMGTASxXDATcHabzpXxroM4D7A3qfk13tF0_IiixjIrVWf_HyPak8LPhrOJ_5t8911M4btRzYMnkrWKdFFGBLFG4Ksyes2WLO-RlHqPZu8)
 
-## Notice: Currently, there are two format of `url`
+## Notice: There are multiple `url` formats
 
-As far as I detected via CI shown above, there are two format of `url` like below:
+As far as I detected via CI shown above, there are multiple formats of `url` like below:
 
 - "https://lh3.googleusercontent.com/Pt3C6874cqkfeuIVL0XZ-UCsC6zLzeQmxq7T9-sDiPhyAgvJiKl_SCrvrMMkpuWuZ1TFkU65ilaZJrCbePRYo1q1qGTYvFV6J8gbYfZhhxQuXm2zXx6QDQkj0K-uBBUzozw7YLYQ5g"
   - exists since at least 2019(maybe from Google Photos started).
 - "https://lh3.googleusercontent.com/pw/AL9nZEV1iNMg-BoRi9GwhhnWNG1SLsFVVhn3xcwh2HaFendlbRJ4DbmEVO9EhQ1SrM4H3zXcbiBYLT9F-e7oyq8I1mrluxlb-00N8dimii_zV7fbE3F080Y"
   - exists since at least `2022-11-20T17:27:38Z`.
+- "https://lh3.googleusercontent.com/pw/AP1GczNvhVFAxxjKnpWDoNcWqXQLshSvKgC_L2SHPF6AsdST128i-EPTP77oIJxzNkV7EQUZremYChDrWilSZw0bunJMvtM415hDUMCOWAHaOQEsyi4JfXA"
+  - exists since at least `2023-04-04T17:14:00Z`.
 
-I cannot find the way to specify the format. See #19.
+I cannot find the way to specify the format. See #19, #23.
 
 ## License
 
