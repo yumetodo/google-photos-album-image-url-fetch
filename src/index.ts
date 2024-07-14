@@ -23,6 +23,14 @@ export async function fetchImageUrls(albumSharedUrl: string, signal?: AbortSigna
 export function extractAppended(before: ImageInfo[], after: ImageInfo[]): info[] {
   return after.filter(a => typeof before.find(v => equal(v, a)) === 'undefined');
 }
+function dateCompareOrFalse(l: number, r: number) {
+  try {
+    return dateCompare(l, r);
+  }
+  catch(_) {
+    return false;
+  }
+}
 export async function validityVerification(): Promise<boolean> {
   const re = await fetchImageUrls(googlePhotosSharedAlbumURL);
   if (null === re) {
@@ -33,7 +41,7 @@ export async function validityVerification(): Promise<boolean> {
   return (
     expectedAnyUrls.every((expectedAnyUrl, i) => expectedAnyUrl.some(e => e === actualUrls[i])) &&
     expectedImageUpdateDates.every((expectedImageUpdateDate, i) =>
-      dateCompare(expectedImageUpdateDate, actualImageUpdateDates[i])
+      dateCompareOrFalse(expectedImageUpdateDate, actualImageUpdateDates[i])
     ) &&
     equal(actualRest, expectedRest)
   );
