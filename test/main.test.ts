@@ -12,6 +12,7 @@ describe('test', () => {
     if (re == null) return;
     const [actualRest, actualUrls] = splitResult(re);
     const [expectedRest, expectedAnyUrls] = splitResult(expected);
+    // const actualImageUpdateDate = actualRest.imageUpdateDate;
     expect(actualRest).toEqual(expectedRest);
     for (let i = 0; i < actualUrls.length; i++) {
       const actualUrl = actualUrls[i];
