@@ -26,7 +26,6 @@
   "homepage": "https://github.com/yumetodo/google-photos-album-image-url-fetch#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@types/json5": "2.2.0",
     "@types/node": "^18.19.39",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
